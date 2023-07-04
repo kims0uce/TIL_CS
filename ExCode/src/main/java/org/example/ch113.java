@@ -1,6 +1,5 @@
 package org.example;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 interface PaymentStrategy {
@@ -86,7 +85,7 @@ class ShoppingCart {
     }
 }
 
-public class Main {
+public class ch113 {
     public static void main(String[] args) {
 
         ShoppingCart cart = new ShoppingCart();

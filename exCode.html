@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function createReactiveObject(target, callback) {
+        const proxy = new Proxy(target, {
+          set(obj, prop, value) {
+            if (value !== obj[prop]) {
+              const prev = obj[prop];
+              obj[prop] = value;
+              callback(`${prop}가 [${prev}] >> [${value}] 로 변경되었습니다.`);
+            }
+            return true;
+          },
+        });
+        return proxy;
+      }
+
+      const today = {
+        lunch: "찜닭",
+      };
+
+      const nextday = createReactiveObject(today, console.log);
+      nextday.lunch = "찜닭";
+      nextday.lunch = "돈까스";
+    </script>
+  </body>
+</html>

@@ -8,18 +8,9 @@
   </head>
   <body>
     <script>
-      const kimsouce = (() => {
-        const first = 1;
-        const second = () => 2;
-        const public = {
-          pubSecond: 2,
-          pubThird: () => 3,
-        };
-        return public;
-      })();
-
-      console.log(kimsouce);
-      console.log(kimsouce.first);
+      const list = [1, 2, 3, 4, 5, 11, 12];
+      const findMax = list.reduce((max, num) => (num > max ? num : max), 0);
+      console.log(findMax);
     </script>
   </body>
 </html>

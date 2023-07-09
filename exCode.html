@@ -8,27 +8,16 @@
   </head>
   <body>
     <script>
-      function createReactiveObject(target, callback) {
-        const proxy = new Proxy(target, {
-          set(obj, prop, value) {
-            if (value !== obj[prop]) {
-              const prev = obj[prop];
-              obj[prop] = value;
-              callback(`${prop}가 [${prev}] >> [${value}] 로 변경되었습니다.`);
-            }
-            return true;
-          },
-        });
-        return proxy;
-      }
-
-      const today = {
-        lunch: "찜닭",
-      };
-
-      const nextday = createReactiveObject(today, console.log);
-      nextday.lunch = "찜닭";
-      nextday.lunch = "돈까스";
+      const map = new Map();
+      map.set("a", 1);
+      map.set("b", 2);
+      map.set("c", 3);
+      const set = new Set();
+      set.add(1);
+      set.add(2);
+      set.add(3);
+      for (let it of map) console.log(`[${it[0]}, ${it[1]}]`);
+      for (let it of set) console.log(it);
     </script>
   </body>
 </html>

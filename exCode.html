@@ -8,9 +8,19 @@
   </head>
   <body>
     <script>
-      const list = [1, 2, 3, 4, 5, 11, 12];
-      const findMax = list.reduce((max, num) => (num > max ? num : max), 0);
-      console.log(findMax);
+      const array = [1, 2, 3, 4, 5, 11, 12];
+      class List {
+        constructor(list) {
+          this.list = list;
+          this.max = list.reduce((max, num) => (num > max ? num : max), 0);
+        }
+        findMax() {
+          return this.max;
+        }
+      }
+
+      const result = new List(array);
+      console.log(result.findMax());
     </script>
   </body>
 </html>

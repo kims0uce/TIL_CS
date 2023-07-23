@@ -7,20 +7,32 @@
     <title>Document</title>
   </head>
   <body>
-    <script>
-      const array = [1, 2, 3, 4, 5, 11, 12];
-      class List {
-        constructor(list) {
-          this.list = list;
-          this.max = list.reduce((max, num) => (num > max ? num : max), 0);
-        }
-        findMax() {
-          return this.max;
-        }
+    <style>
+      .org,
+      .r90,
+      .r180,
+      .r270 {
+        background: url("./assets/2.5/kirby.png") no-repeat;
+        width: 100px;
+        height: 109px;
       }
 
-      const result = new List(array);
-      console.log(result.findMax());
-    </script>
+      .org {
+        background-position: 0 0;
+      }
+      .r90 {
+        transform: rotate(90deg);
+      }
+      .r180 {
+        transform: rotate(180deg);
+      }
+      .r270 {
+        transform: rotate(270deg);
+      }
+    </style>
+    <img class="org" />
+    <img class="r90" />
+    <img class="r180" />
+    <img class="r270" />
   </body>
 </html>
